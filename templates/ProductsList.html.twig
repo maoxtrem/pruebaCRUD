@@ -38,7 +38,7 @@
                                     <td>{{ product.category}}</td>
                                     <td>{{ product.price}}</td>
                                     <td><a class="btn btn-success btn-sm" href="{{ path('product_update',{'id':product.id}) }}">Editar</a></td>
-                                    <td><a class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id':product.id}) }}">Borrar</a></td>
+                                    <td><a class="btn btn-danger btn-sm" href="{{ path('product_delete',{'id':product.id}) }}" onclick="return confirm('Está seguro de que desea eliminar el producto.?')">Borrar</a></td>
                                 </tr>
                             {% endfor %}
                         {% else%}
