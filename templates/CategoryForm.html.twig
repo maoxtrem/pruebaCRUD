@@ -1,5 +1,4 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
     <div class="container">
         <div class="row">
@@ -9,18 +8,15 @@
                         <h2>Prueba BackEnd</h2>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">Menu</h3>
-                        <p class="card-text">Gestionar un producto.</p>
-                        <a href="{{ path('product_add')}}" class="btn btn-primary btn-sm">Formulario de productos</a>
-                        <a href="{{ path('products_list')}}" class="btn btn-primary btn-sm">Lista productos</a>
-                        <p class="card-text">Gestionar un Categoria.</p>
-                        <a href="{{ path('category_add')}}" class="btn btn-primary btn-sm">Formulario de categorias</a>
+                        <h3 class="card-title">Formulario Categoria</h3>
+                        {{ form(form) }}
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ path('index')}}" class="btn btn-primary btn-sm">Inicio</a>
                         <a href="{{ path('category_list')}}" class="btn btn-primary btn-sm">Lista categorias</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 {% endblock %}

@@ -24,14 +24,6 @@ class ProductController extends AbstractController
 
 
     /**
-     * @Route("/",name="index")
-     */
-    public function index(Request $request): Response
-    {
-        return $this->render("index.html.twig", []);
-    }
-
-    /**
      * @Route("/Product/list",name="products_list")
      */
     public function listProducts(Request $request, ProductRepository $productRepository): Response

@@ -1,0 +1,54 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <div class="container">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Prueba BackEnd</h2>
+                    <a class="btn btn-primary btn-sm" href="{{ path('index') }}">Inicio</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('category_add') }}">Nueva Categoria</a>
+                    <a class="btn btn-success btn-sm" href="{{ path('category_export') }}">Exportar</a>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Lista de Producto</h3>
+                    <div class="table-responsive" style="width: 100%; text-align: center">
+                        <table id='tblDespTb' class="table table-sm table-bordered table-striped tablaFiltro" id="mydatatable">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>State</th>
+                                <th>Accion</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% if categories is not empty %}
+                                {% for category in categories %}
+                                    <tr>
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.name }}</td>
+                                        {% if category.active == 0 %}
+                                            <td>Inactivo</td>
+                                        {% else %}
+                                            <td>Activo</td>
+                                        {% endif %}
+                                        <td><a class="btn btn-success btn-sm"
+                                               href="{{ path('category_update',{'id':category.id}) }}">Editar</a></td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <td colspan="8">no hay datos para mostrar</td>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

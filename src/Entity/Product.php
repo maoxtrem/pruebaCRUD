@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use function PHPUnit\Framework\isEmpty;
 
 /**
  * @ORM\Table(name="product")
@@ -31,8 +32,7 @@ class Product
      *      maxMessage = "El código debe tener miximo  10 caracteres"
      * )
      * @Assert\Regex(
-     *     pattern="/^\S\W/",
-     *
+     *     pattern="/\W/",
      *     match=false,
      *     message=" El código no puede contener caracteres especiales ni espacios."
      * )
@@ -105,7 +105,7 @@ class Product
         return $this->code;
     }
 
-    public function setCode(?string $code):self
+    public function setCode(?string $code): self
     {
         $this->code = $code;
         return $this;
@@ -116,7 +116,7 @@ class Product
         return $this->name;
     }
 
-    public function setName(?string $name):self
+    public function setName(?string $name): self
     {
         $this->name = $name;
         return $this;
@@ -129,7 +129,7 @@ class Product
     }
 
 
-    public function setDescription(?string $description):self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
         return $this;
@@ -142,7 +142,7 @@ class Product
     }
 
 
-    public function setBrand(?string $brand):self
+    public function setBrand(?string $brand): self
     {
         $this->brand = $brand;
         return $this;
@@ -155,7 +155,7 @@ class Product
     }
 
 
-    public function setCategory(?Category $category):self
+    public function setCategory(?Category $category): self
     {
         $this->category = $category;
         return $this;
@@ -168,7 +168,7 @@ class Product
     }
 
 
-    public function setPrice(?float $price):self
+    public function setPrice(?float $price): self
     {
         $this->price = $price;
         return $this;
@@ -181,7 +181,7 @@ class Product
     }
 
 
-    public function setCreateAt(?\DateTime $createAt):self
+    public function setCreateAt(?\DateTime $createAt): self
     {
         $this->createAt = $createAt;
         return $this;
@@ -194,7 +194,7 @@ class Product
     }
 
 
-    public function setUpdateAt(?\DateTime $updateAt):self
+    public function setUpdateAt(?\DateTime $updateAt): self
     {
         $this->updateAt = $updateAt;
         return $this;
@@ -205,7 +205,7 @@ class Product
      */
     public function isCodeNotEqualsName(): bool
     {
-        return $this->code !== $this->name;
+        return  $this->code !== $this->name;
     }
 
 }

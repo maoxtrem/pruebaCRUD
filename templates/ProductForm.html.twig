@@ -1,8 +1,23 @@
 {% extends "base.html.twig" %}
-
 {% block body %}
     <div class="container">
-        {{ form(form) }}
+        <div class="row">
+            <div class="col-12">
+            <div class="card" >
+                <div class="card-header">
+                    <h2>Prueba BackEnd</h2>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">Formulario Producto</h3>
+                    {{ form(form) }}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ path('index')}}" class="btn btn-primary btn-sm">Inicio</a>
+                    <a href="{{ path('products_list')}}" class="btn btn-primary btn-sm">Lista productos</a>
+                </div>
+            </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
